@@ -27,14 +27,14 @@ function HomePage() {
         </button>
 
         {/* search and button code */}
-        {/* <form className="search-form">
+        <form className="search-form">
           <input
             type="Text"
             className="search-input"
             placeholder="Search..."
             />
             <button type="Submit" className="Search-button">Search</button>
-        </form> */}
+        </form>
       </header>
 
       <main className="hero"></main>
