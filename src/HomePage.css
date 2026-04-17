@@ -67,6 +67,24 @@
   border-radius: 7px;
 
 }
+
+.footer{
+  background-color: blue;
+  color:white;
+  margin: 20px 10px 20px 10px;
+
+  
+}
+
+.footer-content{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  
+  ma
+
+
+}
 /* 
 .search-form {
   display: flex;
