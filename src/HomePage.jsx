@@ -32,15 +32,7 @@ function HomePage() {
           <a href="/contact">+91 7371021846</a>
         </button>
 
-        {/* search and button code */}
-        <form className="search-form">
-          <input
-            type="Text"
-            className="search-input"
-            placeholder="Search..."
-            />
-            <button type="Submit" className="Search-button">Search</button>
-        </form>
+        
       </header>
 
       <main className="hero"></main>
