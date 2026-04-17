@@ -1,7 +1,7 @@
 import "./Layout.css";
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Home from "./componenet/Home";
+// import Home from "./componenet/Home";
 import { VscLocation } from "react-icons/vsc";
 import { IoCallOutline } from "react-icons/io5";
 import { MdOutlineMail } from "react-icons/md";
@@ -12,7 +12,7 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 function Layout() {
   return (
     <>
-    <div className="home-page">
+    
       <header className="header">
         <div className="logo">
           <span className="logo-apex">apex</span>
@@ -120,7 +120,7 @@ function Layout() {
              <p>Web Design & Development Company in New Delhi</p>
          </div>
        </footer>
-     </div>
+     
     </>
   );
 }
