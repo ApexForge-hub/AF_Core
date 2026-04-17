@@ -54,9 +54,11 @@ function HomePage() {
             <h5><span><VscLocation /></span>Netaji Subhash Marg, Lal Qila, Chandni Chowk, New Delhi, Delhi – 110006, India</h5>
             <h5><IoCallOutline/> +91 7371021846</h5>
             <h5><MdOutlineMail/> apexforge@gmail.com</h5>
+            <div  className= 'social-icons'>
             <button><BiLogoFacebookSquare /></button>
             <button><FaInstagram/></button>
             <button><FaSquareXTwitter/></button>
+            </div>
 
           </div>
           <div className="footerServices">
