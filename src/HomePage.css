@@ -71,19 +71,49 @@
 .footer{
   background-color: blue;
   color:white;
-  margin: 20px 10px 20px 10px;
-
-  
+  padding: 48px 16px;
+ 
 }
 
 .footer-content{
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  gap: 24px;
+  flex-wrap: wrap;
   
-  
+}
 
+.footer-content > div{
+  flex: 1 1 220px;
+  min-width: 220px;
+}
 
+.footerAddress{
+  color: #ffffff;
+  font: 18px 'Poppins', sans-serif;
+  margin: 0 0 16px;
+
+}
+
+.footerServices{
+  color: #ffffff;
+  font: 18px 'Poppins', sans-serif;
+  margin: 0 0 16px;
+
+}
+
+.quick-links{
+  color: #ffffff;
+  font: 18px 'Poppins', sans-serif;
+  margin: 0 0 16px;
+
+}
+
+.footer-bottom{
+  margin: 40px 0 0;
+  padding: 24px 0 0;
+  color: #9ca3af;
+  font: 16px 'Poppins', sans-serif;
 }
 /* 
 .search-form {

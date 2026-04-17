@@ -111,7 +111,7 @@ function HomePage() {
           </div>
 
         </div>
-        <div>
+        <div  className="footer-bottom">
             <p>&copy; 2026 apexforge. All Right Reserved </p>
             <p>Web Design & Development Company in New Delhi</p>
         </div>
