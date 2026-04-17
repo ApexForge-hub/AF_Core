@@ -45,11 +45,11 @@ function Layout() {
           </form>
       </header>
 
-      <main className="hero">
+      <main >
         <outlet/>
       </main>
 
-       <Home/>
+      
       
        <footer className="footer">
          <div className="footer-content">
