@@ -1,6 +1,6 @@
 // import React from "react";
 import "./Home.css";
-import { Link } from "react-router-dom";
+import { Link , Outlet} from "react-router-dom";
 import { VscLocation } from "react-icons/vsc";
 import { IoCallOutline } from "react-icons/io5";
 import { MdOutlineMail } from "react-icons/md";
@@ -46,6 +46,7 @@ function Home() {
 
       <main className="hero"></main>
 
+      <outlet/>
       {/* <Home/> */}
       
       <footer className="footer">
