@@ -1,6 +1,12 @@
 import "./HomePage.css";
 import { Link } from "react-router-dom";
 import Home from "./componenet/Home";
+import { VscLocation } from "react-icons/vsc";
+import { IoCallOutline } from "react-icons/io5";
+import { MdOutlineMail } from "react-icons/md";
+import { BiLogoFacebookSquare } from "react-icons/bi";
+import { FaInstagram } from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
 
 function HomePage() {
   return (
@@ -43,7 +49,16 @@ function HomePage() {
       
       <footer className="footer">
         <div>
-          <div></div>
+          <div className="footerAddress">
+            <h4>apexforge</h4>
+            <h5><span><VscLocation /></span>Netaji Subhash Marg, Lal Qila, Chandni Chowk, New Delhi, Delhi – 110006, India</h5>
+            <h5><IoCallOutline/> +91 7371021846</h5>
+            <h5><MdOutlineMail/> apexforge@gmail.com</h5>
+            <button><BiLogoFacebookSquare /></button>
+            <button><FaInstagram/></button>
+            <button><FaSquareXTwitter/></button>
+
+          </div>
           <div className="footerServices">
             <h4>Our Services</h4>
             <ul>
