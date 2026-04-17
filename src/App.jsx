@@ -11,13 +11,13 @@ import "./App.css";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
+    element: <Home />,
   },
   {
     path: "/services",
     element: (
       <>
-        <HomePage />
+        
         <Services />
       </>
     ),
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
     path: "/about",
     element: (
       <>
-        <HomePage />
+        
         <About />
       </>
     ),
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
     path: "/case-studies",
     element: (
       <>
-        <HomePage />
+        
         <CaseStudies />
       </>
     ),
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
     path: "/blog",
     element: (
       <>
-        <HomePage />
+        
         <Blog />
       </>
     ),
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
     path: "/contact",
     element: (
       <>
-        <HomePage />
+       
         <Contact />
       </>
     ),

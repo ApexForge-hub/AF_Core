@@ -1,3 +1,147 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px;
+  background: #111;
+  color: white;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-family: 'Inter', 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.logo-apex {
+  color: #38d9a9; /* fresh bright green */
+  /* text-transform: uppercase; */
+  /* position: relative; */
+}
+
+/* .logo-apex::after {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 40%;
+  height: 4px;
+  background: #71f2c0;
+  border-radius: 999px;
+} */
+
+.logo-forge {
+  color: #f2f2f2; /* light metallic */
+  margin-left: 1px;
+  text-transform: lowercase;
+  /* filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25)); */
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  align-items: center;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+.main-nav a {
+  color: white;
+  text-decoration: none;
+}
+
+/* .main-nav a:hover {
+  text-decoration: underline;
+} */
+
+.contactNo{
+  background-color: rgb(220, 178, 220);
+  width: 150px;
+  height: 40px;
+  border-radius: 7px;
+
+}
+
+.footer{
+  background-color: blue;
+  color:white;
+  padding: 48px 16px;
+ 
+}
+
+.footer-content{
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  
+}
+
+.footer-content > div{
+  flex: 1 1 220px;
+  min-width: 220px;
+}
+
+.footerAddress{
+  color: #ffffff;
+  font: 18px 'Poppins', sans-serif;
+  margin: 0 0 16px;
+
+}
+
+.footerServices{
+  color: #ffffff;
+  font: 18px 'Poppins', sans-serif;
+  margin: 0 0 16px;
+
+}
+
+.quick-links{
+  color: #ffffff;
+  font: 18px 'Poppins', sans-serif;
+  margin: 0 0 16px;
+
+}
+
+.footer-bottom{
+  margin: 40px 0 0;
+  padding: 24px 0 0;
+  color: #9ca3af;
+  font: 16px 'Poppins', sans-serif;
+}
+/* 
+.search-form {
+  display: flex;
+  gap: 8px;
+}
+
+.search-input {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid #ccc;
+  min-width: 180px;
+}
+
+.search-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 999px;
+  background: #ff4500;
+  color: white;
+  cursor: pointer;
+} */ 
+
+
+
+
+
+
 .home-style{
     font-weight: bold;
     color: brown;
