@@ -48,16 +48,16 @@ function HomePage() {
       <Home/>
       
       <footer className="footer">
-        <div>
+        <div className="footer-content">
           <div className="footerAddress">
             <h4>apexforge</h4>
             <h5><span><VscLocation /></span>Netaji Subhash Marg, Lal Qila, Chandni Chowk, New Delhi, Delhi – 110006, India</h5>
             <h5><IoCallOutline/> +91 7371021846</h5>
             <h5><MdOutlineMail/> apexforge@gmail.com</h5>
             <div  className= 'social-icons'>
-            <button><BiLogoFacebookSquare /></button>
-            <button><FaInstagram/></button>
-            <button><FaSquareXTwitter/></button>
+              <button><BiLogoFacebookSquare /></button>
+              <button><FaInstagram/></button>
+              <button><FaSquareXTwitter/></button>
             </div>
 
           </div>
@@ -110,10 +110,10 @@ function HomePage() {
             </ul>
           </div>
 
-          <div>
+        </div>
+        <div>
             <p>&copy; 2026 apexforge. All Right Reserved </p>
             <p>Web Design & Development Company in New Delhi</p>
-          </div>
         </div>
       </footer>
     </div>
