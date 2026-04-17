@@ -46,7 +46,7 @@ function Layout() {
       </header>
 
       <main >
-        <outlet/>
+        <Outlet/>
       </main>
 
       
