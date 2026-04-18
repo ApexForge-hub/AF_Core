@@ -8,7 +8,7 @@ import "./ImageSlider.css";
 function ImageSlider() {
   const slider = [
     {
-      image: "src/assets/slider1.jpg",
+      image: "C:\\Apexforge\\Apexforge\\src\\assets\\slider1.jpg",
       title: "Empowering Your Digital Journey with ApexForge",
       description:
         "At ApexForge, we are dedicated to empowering your digital journey. With our innovative solutions and expert team, we help you navigate the ever-evolving digital landscape, ensuring your success in the online world.",
