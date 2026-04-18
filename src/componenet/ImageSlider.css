@@ -1,0 +1,38 @@
+.image-slider {
+  width: 100%;
+  height: 500px; /* Adjust as needed */
+}
+
+.slide-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  padding: 20px 40px;
+  border-radius: 8px;
+}
+
+.text-overlay h2 {
+  font-size: 2.5rem;
+  margin: 0 0 10px 0;
+}
+
+.text-overlay p {
+  font-size: 1.1rem;
+  margin: 0;
+}
