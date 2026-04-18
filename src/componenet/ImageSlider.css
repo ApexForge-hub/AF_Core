@@ -1,6 +1,7 @@
 .image-slider {
   width: 100%;
-  height: 500px; /* Adjust as needed */
+  height: 100vh; /* full viewport height */
+  max-height: 100vh;
 }
 
 .slide-content {
@@ -12,7 +13,7 @@
 .slide-content img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* cover full area , maintains aspect ratio */
 }
 
 .text-overlay {
@@ -25,6 +26,7 @@
   background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
   padding: 20px 40px;
   border-radius: 8px;
+  max-width: 90%;  /* prevent overflow on small screens */
 }
 
 .text-overlay h2 {
@@ -36,3 +38,50 @@
   font-size: 1.1rem;
   margin: 0;
 }
+
+/* Tablet: Medium screens (768px - 1024px) */
+@media (max-width: 1024px) {
+  .text-overlay h2 {
+    font-size: 2rem;
+  }
+
+  .text-overlay p {
+    font-size: 0.95rem;
+  }
+
+  .text-overlay {
+    padding: 15px 30px;
+  }
+}
+
+/* Mobile: Small screens (below 768px) */
+@media (max-width: 768px) {
+  .text-overlay h2 {
+    font-size: 1.5rem;
+  }
+
+  .text-overlay p {
+    font-size: 0.85rem;
+    }
+
+  .text-overlay {
+    padding: 10px 20px;
+    max-width: 95%;
+  }
+}
+
+/* Extra small phones (below 480px) */
+@media (max-width: 480px) {
+  .text-overlay h2 {
+    font-size: 1.2rem;
+  }
+
+  .text-overlay p {
+    font-size: 0.75rem;
+  }
+
+  .text-overlay {
+    padding: 8px 15px;
+  }
+}
+    
