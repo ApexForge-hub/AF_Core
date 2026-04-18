@@ -8,13 +8,13 @@ import "./ImageSlider.css";
 function ImageSlider() {
   const slider = [
     {
-      image: "/slider1.jpg",
+      image: "src/assets/slider1.jpg",
       title: "Empowering Your Digital Journey with ApexForge",
       description:
         "At ApexForge, we are dedicated to empowering your digital journey. With our innovative solutions and expert team, we help you navigate the ever-evolving digital landscape, ensuring your success in the online world.",
     },
     {
-      image: "/slider2.jpg",
+      image: "AF_Core/src/assets/slider2.jpg",
       title: "Transforming Ideas into Reality with ApexForge",
       description:
         "At ApexForge, we specialize in transforming your ideas into reality. Our team of experts is committed to bringing your vision to life through innovative solutions and cutting-edge technology, ensuring your success in the digital world.",
