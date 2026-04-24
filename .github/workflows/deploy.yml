@@ -113,7 +113,13 @@ jobs:
             
             # Create logs directory
             mkdir -p logs
-           
+
+            # Restart PM2 with the new code
+            echo "Restarting application with PM2..."
+            pm2 reload ecosystem.config.cjs --update-env
+            pm2 save
+            echo "✅ PM2 restart completed"
+            
           EOF
 
           # Cleanup
