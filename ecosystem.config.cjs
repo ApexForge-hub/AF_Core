@@ -1,8 +1,8 @@
 module.exports = {
   apps: [
     {
-      name: "express-app",
-      script: "./dist/index.js", // TypeScript compiled output
+      name: "AF_Core",
+      script: "./dist/assets/index-C2_8qyFP.js", // TypeScript compiled output
       instances: "max",
       exec_mode: "cluster",
       watch: false,
