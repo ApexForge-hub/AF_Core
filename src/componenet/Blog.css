@@ -1,0 +1,91 @@
+.apexforge-blog{
+  background: #23325A;
+  height: 200px;
+  padding: 80px 0px;
+}
+
+.apexforge-blog h1{
+  color:#ffffff;
+  font: 48px poppins, sans-serif;
+  margin: 0px 0px 16px;
+  
+
+}
+
+.apexforge-blog p{
+  color:#ffffff;
+  font: 16px poppins, sams-serif;
+  margin: 0px 0px 24px;
+  padding: 0px 16px;
+
+}
+
+
+ .search-form {
+  /* display: flex; */
+  gap: 8px;
+  margin-bottom: 700px;
+  margin-top: 40px;
+  align-items: center;
+  color: #ffffff;
+  padding-top: 20px; 
+}
+
+.search-input {
+  padding: 16px 24px;
+  border-radius: 9px;
+  border: 1px solid #ccc;
+  min-width: 180px;
+  color: #ffffff;
+}
+
+.Search-button {
+  padding: 16px 24px;
+  border: none;
+  border-radius: 9px;
+  background:#D9BAD7;
+  color: black;
+  cursor: pointer;
+} 
+
+.subscribe{
+  background: #23325A;
+  margin-top:400px;
+  padding: 20px;
+
+}
+
+.subscribe h3{
+  color: #ffffff;
+  font: 18px poppins, sans-serif;
+  margin: 0px 0px 8px;
+
+}
+
+.subscribe p{
+  color: #ffffff;
+  font: 14px poppins, sans-serif;
+  margin: 0px 0px 12px;
+}
+
+.subscribe ::placeholder{
+  background: #ffffff;
+  
+}
+
+.submit-email{
+  padding: 15px 20px;
+  border-radius: 9px;
+  margin-top:20px;
+
+}
+
+.click{
+  margin-top: 12px;
+  padding: 12px 20px;
+  border-radius:9px; 
+  color: #23325A;
+  font: 14px poppins, sans-serif;
+  background: #D9BAD7;
+}
+

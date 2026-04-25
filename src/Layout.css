@@ -1,0 +1,237 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px;
+  background: #23335A;
+  color: white;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-family: 'Inter', 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.logo-apex {
+  color: #38d9a9; /* fresh bright green */
+  /* text-transform: uppercase; */
+  /*position: relative; */
+}
+
+/* .logo-apex::after {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 40%;
+  height: 4px;
+  background: #71f2c0;
+  border-radius: 999px;
+} */
+
+ .logo-forge {
+  color: #f2f2f2; /* light metallic */
+  /* margin-left: 1px;
+  text-transform: lowercase;
+  /* filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25)); */
+ }
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  align-items: center;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+.main-nav a {
+  color: white;
+  text-decoration: none;
+} 
+
+/* .main-nav a:hover {
+  text-decoration: underline;
+}  */
+
+.contactNo{
+  background-color: #967BB6;
+  width: 200px;
+  height: 60px;
+  border-radius: 7px;
+  padding: 12px 16px;
+  font: 18px Poppins, sans-serif;
+
+}
+
+.number{
+   color: #ffffff;
+   text-decoration: none;
+}
+
+.contactNo:hover{
+  background-color: transparent ;
+   
+}
+
+
+
+.footer{
+  background-color: #23335A;
+  color:white;
+  padding: 48px 16px;
+ 
+}
+
+.footer-content{
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  
+}
+
+.footer-content > div{
+  flex: 1 1 220px;
+  min-width: 220px;
+}
+
+.footerAddress{
+  color: #ffffff;
+  font: 18px 'Poppins', sans-serif;
+  margin: 0 0 16px;
+
+}
+
+.footerServices{
+  color: #9CA3AF;
+  font: 18px 'Poppins', sans-serif;
+  margin: 0 0 16px;
+
+}
+
+.web{
+  text-decoration: none;
+  color: rgb(243, 238, 238);
+  font: 16px 'Poppins', sans-serif;
+}
+
+.software{
+  text-decoration: none;
+  color: rgb(243, 238, 238);
+  font: 16px 'Poppins', sans-serif;
+}
+
+.digital{
+  text-decoration: none;
+  color: rgb(243, 238, 238);
+  font: 16px 'Poppins', sans-serif;
+}
+
+.e-commerce{
+  text-decoration: none;
+  color: rgb(243, 238, 238);
+  font: 16px 'Poppins', sans-serif;
+}
+
+.mobile{
+  text-decoration: none;
+  color: rgb(243, 238, 238);
+  font: 16px 'Poppins', sans-serif;
+}
+
+.seo{
+  text-decoration: none;
+  color: rgb(243, 238, 238);
+  font: 16px 'Poppins', sans-serif;
+}
+
+.ux{
+  text-decoration: none;
+  color: rgb(243, 238, 238);
+  font: 16px 'Poppins', sans-serif;
+}
+
+
+.quick-links{
+  color: #ffffff;
+  font: 18px 'Poppins', sans-serif;
+  margin: 0 0 16px;
+  
+
+}
+
+.footer-bottom{
+  margin: 40px 0 0;
+  padding: 24px 0 0;
+  color: #9CA3AF;
+  font: 16px 'Poppins', sans-serif;
+} 
+
+.home{
+  text-decoration: none;
+  color: #9CA3AF;
+  font: 16px 'Poppins', sans-serif;
+}
+
+.home:hover{
+  color: #ffffff;
+}
+
+.about{
+  text-decoration: none;
+  color: #9CA3AF;
+  font: 16px 'Poppins', sans-serif;
+}
+
+.about:hover{
+  color: #ffffff;
+}
+
+.services{
+  text-decoration: none;
+  color: #9CA3AF;
+  font: 16px 'Poppins', sans-serif;
+}
+
+.services:hover{
+  color: #ffffff;
+}
+
+.case{
+  text-decoration: none;
+  color: #9CA3AF;
+  font: 16px 'Poppins', sans-serif;
+}
+
+.case:hover{
+  color: #ffffff;
+}
+
+.blog{
+  text-decoration: none;
+  color: #9CA3AF;
+  font: 16px 'Poppins', sans-serif;
+}
+
+.blog:hover{
+  color: #ffffff;
+}
+
+.contact{
+  text-decoration: none;
+  color: #9CA3AF;
+  font: 16px 'Poppins', sans-serif;
+}
+
+.contact:hover{
+  color: #ffffff;
+}
+
+  
