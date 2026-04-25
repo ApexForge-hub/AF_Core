@@ -4,6 +4,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./ImageSlider.css";
+import { useRef } from "react";
 
 import slide1 from "../assets/slide1.jpg";
 import slide2 from "../assets/slide2.jpg";
@@ -11,12 +12,14 @@ import slide3 from "../assets/slide3.jpg";
 import slide4 from "../assets/slide4.jpg";
 
 function ImageSlider() {
+  const swiperRef = useRef(null);
+
   const slider = [
     {
-      image : slide1,
-      title: "Empowering Your Digital Journey with ApexForge",
+      image: slide1,
+      title: "Innovating Web Development ",
       description:
-        "At ApexForge, we are dedicated to empowering your digital journey. With our innovative solutions and expert team, we help you navigate the ever-evolving digital landscape, ensuring your success in the online world.",
+        "Build scalable and high-performance web applications with our expert development team using cutting-edge technologies. Perfect for small and medium businesses across India.",
     },
     {
       image: slide2,
@@ -38,26 +41,50 @@ function ImageSlider() {
     },
   ];
   return (
-    <Swiper
-      modules={[Navigation, Pagination, Autoplay]}
-      navigation
-      pagination={{ clickable: true }}
-      autoplay={{ delay: 5000 }}
-      loop
-      className="image-slider"
-    >
-      {slider.map((slide, index) => (
-        <SwiperSlide key={index}>
-          <div className="slide-content">
-            <img src={slide.image} alt={slide.title} />
-            <div className="text-overlay">
-              <h2>{slide.title}</h2>
-              <p>{slide.description}</p>
+    <div className="slider-container">
+      <Swiper
+        ref={swiperRef}
+        modules={[Navigation, Pagination, Autoplay]}
+        // navigation
+        // pagination={{ clickable: true }}
+        autoplay={{ delay: 5000 }}
+        loop
+        className="image-slider"
+      >
+        {slider.map((slide, index) => (
+          <SwiperSlide key={index}>
+            <div className="slide-content">
+              <img src={slide.image} alt={slide.title} />
+              <div className="text-overlay">
+                <h2>{slide.title}</h2>
+                <p>{slide.description}</p>
+                <div className="button-group">
+                  <button className="btn btn-primary">Get Started</button>
+                  <button className="btn btn-secondary">Our Services →</button>
+                </div>
+              </div>
             </div>
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      {/* Custom Arrow Buttons */}
+      <div className="custom-arrows">
+        <button
+          className="arrow-btn arrow-left"
+          onClick={() => swiperRef.current.swiper.slidePrev()}
+        >
+          ←
+      
+        </button>
+        <button
+          className="arrow-btn arrow-right"
+          onClick={() => swiperRef.current.swiper.slideNext()}
+        >
+          →
+        </button>
+      </div>
+    </div>
   );
 }
 export default ImageSlider;

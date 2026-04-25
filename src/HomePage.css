@@ -1,0 +1,146 @@
+.section1{
+    padding: 48px;
+    background: linear-gradient(135deg, rgba(236, 238, 242, 0.838) 0%, rgba(121, 142, 170, 0.3) 50%, rgba(113, 160, 227, 0.2) 100%);
+  
+}
+
+.section1-title{
+    color: #23335A;
+    /* padding: 20px  30px; */
+    line-height: 0.5;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.section1-p{
+    font: 16px 'Poppins', sans-serif;
+    color: #4b5563;
+    margin: 12px 194px 0;
+}
+
+.section1-div{
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding : 16px;
+    font: 16px 'Poppins', sans-serif;
+    color: #23325A;
+    
+}
+
+.section1-div1{
+    outline: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.section1-div2{
+    outline: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.section1-div3{
+    outline: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.section2{
+    background-color: #f9fafb;
+    margin-top: 60px;
+    margin-bottom: 30px;; 
+}
+
+.title{
+   
+    color: #23335A;
+    /* padding: 20px  30px; */
+    line-height: 0.5;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.section2-p{
+    font: 16px 'Poppins', sans-serif;
+    color: #4b5563;
+    
+   
+}
+
+.section2-div1{
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin: 70px 30px;
+    font: 16px 'Poppins', sans-serif;
+    font-size: 20px;
+    /* line-height: 1.5; */
+
+}
+ 
+.web-design {
+    font: 16px 'Poppins', sans-serif;
+    color: #4b5563;
+    padding: 20px  30px;
+    line-height: 1.5;
+}
+
+.layout{
+    font-size: 50px;
+    margin: 20px 10px;
+}
+
+.title1{
+    color:black;
+    font-size: 40px;
+    
+
+}
+
+.p1{
+    font-weight: 400;
+    font-size: 20px;;
+}
+
+.Design{
+    font: 16px 'Poppins', sans-serif;
+    color: #4b5563;
+    padding: 20px  30px;
+    line-height: 1.5;
+
+}
+
+.layers{
+   font-size: 50px;
+    margin: 20px 10px;
+} 
+
+.Services {
+    font: 16px 'Poppins', sans-serif;
+    color: #4b5563;
+    padding: 20px  30px;
+    line-height: 1.5;
+
+}
+
+.code{
+    font-size: 50px;
+    margin: 20px 10px;
+}
+
+.Digital_Marketing {
+    font: 20px 'Poppins', sans-serif;
+    color: #4b5563;
+    padding: 20px  30px;
+    line-height: 1.5;
+
+}
+
+
+.Database{
+    font-size: 50px;
+    margin: 20px 10px;
+}
