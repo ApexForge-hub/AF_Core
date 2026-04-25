@@ -3,7 +3,7 @@ name: Deploy to EC2
 on:
   push:
     branches: [main]
-  workflow_dispatch: # manual trigger
+  workflow_dispatch:
 
 jobs:
   build:
@@ -17,24 +17,19 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "25.9.0"
+          node-version: "20"
           cache: "npm"
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build TypeScript
+      - name: Build application
         run: npm run build
 
-      - name: Create deployment package (without node_modules)
+      - name: Create deployment package
         run: |
           mkdir -p deploy
-          cp -r dist deploy/
-          cp -r src deploy/
-          cp package*.json deploy/
-          cp ecosystem.config.cjs deploy/
-          # Copy .env.example if exists
-          [ -f .env.example ] && cp .env.example deploy/ || echo "No .env.example found"
+          cp -r dist/* deploy/
           tar -czf deploy.tar.gz -C deploy .
 
       - name: Upload build artifact
@@ -61,93 +56,73 @@ jobs:
           EC2_USERNAME: ${{ secrets.EC2_USERNAME }}
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
         run: |
-          # Create SSH key file
           echo "$SSH_PRIVATE_KEY" > private_key.pem
           chmod 600 private_key.pem
 
-          # Copy deployment package to EC2
           scp -i private_key.pem -o StrictHostKeyChecking=no \
-            deploy.tar.gz ${EC2_USERNAME}@${EC2_HOST}:/tmp/
+            deploy.tar.gz ${EC2_USERNAME}@${EC2_HOST}:/tmp/deploy.tar.gz
 
-          # SSH into EC2 and deploy
           ssh -i private_key.pem -o StrictHostKeyChecking=no \
             ${EC2_USERNAME}@${EC2_HOST} << 'EOF'
-            
-            # Navigate to app directory
-            cd /var/www/apex-frontend-app/AF_Core
+            set -e
 
-            # Fix ownership first (important!)
-            echo "Fixing directory ownership..."
-            sudo chown -R $USER:$USER /var/www/apex-frontend-app/AF_Core
-            
-            
-            # Backup current version
-            if [ -d "dist" ]; then
-              timestamp=$(date +%Y%m%d_%H%M%S)
-              mkdir -p backups
-              tar -czf backups/backup_${timestamp}.tar.gz dist package.json ecosystem.config.cjs .env 2>/dev/null || true
-              # Keep only last 5 backups
-              ls -t backups/backup_*.tar.gz 2>/dev/null | tail -n +6 | xargs -r rm
-            fi
-            
-            # Extract new version (this will overwrite existing files)
-            echo "Extracting new deployment package..."
-            tar --overwrite -xzf /tmp/deploy.tar.gz -C /var/www/apex-frontend-app/AF_Core
-            rm /tmp/deploy.tar.gz
+            APP_DIR="/var/www/apex-frontend-app/AF_Core"
+            RELEASES_DIR="$APP_DIR/releases"
+            TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+            NEW_RELEASE="$RELEASES_DIR/$TIMESTAMP"
 
-            # Fix ownership after extraction
-            sudo chown -R $USER:$USER /var/www/apex-frontend-app/AF_Core
-            
-            
-            # Install production dependencies on the server
-            echo ""
-            echo "Installing production dependencies..."
-            npm ci
-            
-            # Create .env file if needed (only on first deploy)
-            if [ ! -f .env ]; then
-              echo "Creating default .env file..."
-              echo "NODE_ENV=production" > .env
-              echo "PORT=8000" >> .env
-            fi
-            
-            # Create logs directory
-            mkdir -p logs
+            echo "Creating release directory..."
+            sudo mkdir -p "$RELEASES_DIR"
+            sudo mkdir -p "$NEW_RELEASE"
+            sudo chown -R $USER:$USER "$APP_DIR"
 
-            # Restart PM2 with the new code
-            echo "Restarting application with PM2..."
-            pm2 reload ecosystem.config.cjs --update-env
-            pm2 save
-            echo "✅ PM2 restart completed"
-            
+            echo "Extracting new build..."
+            tar -xzf /tmp/deploy.tar.gz -C "$NEW_RELEASE"
+            rm -f /tmp/deploy.tar.gz
+
+            echo "Switching current symlink..."
+            ln -sfn "$NEW_RELEASE" "$APP_DIR/current"
+
+            echo "Fixing permissions..."
+            sudo chown -h $USER:$USER "$APP_DIR/current"
+            sudo chown -R $USER:$USER "$NEW_RELEASE"
+
+            echo "Testing nginx config..."
+            sudo nginx -t
+
+            echo "Reloading nginx..."
+            sudo systemctl reload nginx
+
+            echo "Cleaning old releases, keeping last 5..."
+            cd "$RELEASES_DIR"
+            ls -1dt */ | tail -n +6 | xargs -r rm -rf
+
+            echo "✅ Deployment completed successfully"
           EOF
 
-          # Cleanup
-          rm private_key.pem
+          rm -f private_key.pem
 
       - name: Verify deployment
         env:
           EC2_HOST: ${{ secrets.EC2_HOST }}
         run: |
-          echo "Waiting for application to start..."
-          sleep 10
+          echo "Waiting for deployment..."
+          sleep 5
 
-          # Check if app responds via nginx (try multiple times)
-          for i in {1..2}; do
-            echo "Attempt $i of 2..."
-            response=$(curl -s -o /dev/null -w "%{http_code}" http://${EC2_HOST} 2>/dev/null || echo "000")
-            
-            if [ "$response" = "200" ] || [ "$response" = "301" ] || [ "$response" = "302" ]; then
-              echo "✅ Deployment successful! App is responding with status: $response"
+          for i in {1..5}; do
+            echo "Attempt $i..."
+            response=$(curl -s -o /dev/null -w "%{http_code}" http://${EC2_HOST} || echo "000")
+
+            if [ "$response" = "200" ]; then
+              echo "✅ Deployment successful! HTTP $response"
               exit 0
             fi
-            
-            echo "Got response: $response, waiting 5 seconds..."
+
+            echo "Got response: $response"
             sleep 5
           done
 
-          echo "❌ Deployment verification failed after 2 attempts"
-          echo "Please check PM2 logs on the server"
+          echo "❌ Deployment verification failed"
           exit 1
 
       - name: Rollback on failure
@@ -157,31 +132,29 @@ jobs:
           EC2_USERNAME: ${{ secrets.EC2_USERNAME }}
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
         run: |
-          echo "🔄 Attempting to rollback to previous version..."
-
           echo "$SSH_PRIVATE_KEY" > private_key.pem
           chmod 600 private_key.pem
 
           ssh -i private_key.pem -o StrictHostKeyChecking=no \
             ${EC2_USERNAME}@${EC2_HOST} << 'EOF'
-            
-            cd /var/www/apex-frontend-app/AF_Core
+            set -e
 
-            # Fix ownership first (important!)
-            sudo chown -R $USER:$USER /var/www/apex-frontend-app/AF_Core
-            
-            # Find latest backup
-            latest_backup=$(ls -t backups/backup_*.tar.gz 2>/dev/null | head -1)
-            
-            if [ -n "$latest_backup" ]; then
-              echo "Found backup: $latest_backup"
-              tar -xzf "$latest_backup" -C /var/www/apex-frontend-app/AF_Core
-              npm ci
-              pm2 reload ecosystem.config.cjs
-              echo "✅ Rolled back to previous version"
+            APP_DIR="/var/www/apex-frontend-app/AF_Core"
+            RELEASES_DIR="$APP_DIR/releases"
+
+            cd "$RELEASES_DIR"
+
+            PREVIOUS_RELEASE=$(ls -1dt */ | sed -n '2p')
+
+            if [ -n "$PREVIOUS_RELEASE" ]; then
+              echo "Rolling back to $PREVIOUS_RELEASE"
+              ln -sfn "$RELEASES_DIR/$PREVIOUS_RELEASE" "$APP_DIR/current"
+              sudo nginx -t
+              sudo systemctl reload nginx
+              echo "✅ Rollback completed"
             else
-              echo "⚠️ No backup found, cannot rollback"
+              echo "⚠️ No previous release found"
             fi
           EOF
 
-          rm private_key.pem
+          rm -f private_key.pem
