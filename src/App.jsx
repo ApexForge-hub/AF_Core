@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Layout from "./Layout";
 import HomePage from "./HomePage";
-import Home from "./componenet/Home";
 import Services from "./componenet/Services";
 import About from "./componenet/About";
 import CaseStudies from "./componenet/CaseStudies";
@@ -11,61 +11,20 @@ import "./App.css";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
-  },
-  {
-    path: "/services",
-    element: (
-      <>
-        <HomePage />
-        <Services />
-      </>
-    ),
-  },
-  {
-    path: "/about",
-    element: (
-      <>
-        <HomePage />
-        <About />
-      </>
-    ),
-  },
-  {
-    path: "/case-studies",
-    element: (
-      <>
-        <HomePage />
-        <CaseStudies />
-      </>
-    ),
-  },
-  {
-    path: "/blog",
-    element: (
-      <>
-        <HomePage />
-        <Blog />
-      </>
-    ),
-  },
-  {
-    path: "/contact",
-    element: (
-      <>
-        <HomePage />
-        <Contact />
-      </>
-    ),
+    element: <Layout />,
+    children: [
+      { index: true, element: <HomePage /> },
+      { path: "about", element: <About /> },
+      { path: "services", element: <Services /> },
+      { path: "case-studies", element: <CaseStudies /> },
+      { path: "blog", element: <Blog /> },
+      { path: "contact", element: <Contact /> },
+    ],
   },
 ]);
 
 function App() {
-  return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

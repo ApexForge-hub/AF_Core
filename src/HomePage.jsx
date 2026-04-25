@@ -1,105 +1,108 @@
 import "./HomePage.css";
-import { Link } from "react-router-dom";
-import Home from "./componenet/Home";
-
+import ImageSlider from "./componenet/ImageSlider";
+import { GoArrowRight } from "react-icons/go";
+import { FiLayout } from "react-icons/fi";
+import { FiLayers } from "react-icons/fi";
+import { IoIosCode } from "react-icons/io";
+import { GoDatabase } from "react-icons/go";
 function HomePage() {
   return (
-    <div className="home-page">
-      <header className="header">
-        <div className="logo">
-          <span className="logo-apex">apex</span>
-          <span className="logo-forge">forge</span>
-        </div>
+    <main>
+      <ImageSlider />
 
-        <div className="navbar">
-          <nav className="main-nav">
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/services">Services</Link>
-            <Link to="/case-studies">Case Studies</Link>
-            <Link to="/blog">Blog</Link>
-            <Link to="/contact">Contact</Link>
-          </nav>
-        </div>
-
-        <button className="contactNo">
-          <a href="/contact">+91 7371021846</a>
-        </button>
-
-        {/* search and button code */}
-        {/* <form className="search-form">
-          <input
-            type="Text"
-            className="search-input"
-            placeholder="Search..."
-            />
-            <button type="Submit" className="Search-button">Search</button>
-        </form> */}
-      </header>
-
-      <main className="hero"></main>
-
-      <Home/>
-      
-      <footer className="footer">
-        <div>
-          <div></div>
-          <div className="footerServices">
-            <h4>Our Services</h4>
-            <ul>
-              <a href="/services">
-                <span>Web Development</span>
-                <span>
-                  <p>Custome websites & applications</p>
-                </span>
-              </a>
-
-              <li>
-                <a href="/services">Software Solutions</a>
-              </li>
-              <li>
-                <a href="/services">Digital Marketing</a>
-              </li>
-              <li>
-                <a href="/services">E-Commerce Solution</a>
-              </li>
-              <li>
-                <a href="/services">Mobile Application</a>
-              </li>
-            </ul>
+      <section className="section1">
+        <h2  className="section1-title">Premier Web Design and Digital Marketing in New Delhi</h2>
+        <p className="section1-p">
+          Trusted by small and medium businesses across New Delhi and throughout
+          India
+        </p>
+        <div className="section1-div">
+          <div className="section1-div1">
+            <p> New Delhi </p>
           </div>
-
-          <div className="quick-links">
-            <h4>Quick Links</h4>
-            <ul>
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/about">About</a>
-              </li>
-              <li>
-                <a href="/services">Services</a>
-              </li>
-              <li>
-                <a href="/case-studies">Case Studies</a>
-              </li>
-              <li>
-                <a href="/blog">Blog</a>
-              </li>
-              <li>
-                <a href="/contact">Contact</a>
-              </li>
-            </ul>
+          <div className="section1-div2">
+            <p> All India</p>
           </div>
-
-          <div>
-            <p>&copy; 2026 apexforge. All Right Reserved </p>
-            <p>Web Design & Development Company in New Delhi</p>
+          <div className="section1-div3">
+            <p> Outside India </p>
           </div>
         </div>
-      </footer>
-    </div>
+      </section>
+
+      <section className="section2">
+        <h2  className="title">Our Core Services</h2>
+        <p className="section2-p">
+          {" "}
+          We offer a comprehensive range of digital services to help your
+          business grow and succeed in today's competitive market
+        </p>
+        <div className="section2-div1">
+          <div className="web-design">
+            <div>
+              {" "}
+              <FiLayout className="layout" />{" "}
+            </div>
+            <h3 classNmae="title1">Website Designing</h3>
+            <p className="p1">
+              We create professional, responsive websites that showcase your
+              brand and drive business growth.
+            </p>
+            <a href="#">
+              Learn More
+              <GoArrowRight />
+            </a>
+          </div>
+
+          <div className="Design">
+            <div>
+              {" "}
+              <FiLayers className="layers" />{" "}
+            </div>
+            <h2>UX/UI Design</h2>
+            <p>
+              Create intuitive user experiences that enhance usability and
+              customer satisfaction for your digital products.
+            </p>
+            <a href="server">
+              Learn More
+              <GoArrowRight />
+            </a>
+          </div>
+
+          <div className="Services">
+            <div>
+              {" "}
+              <IoIosCode className="code" />{" "}
+            </div>
+            <h2>SEO Services</h2>
+            <p>
+              Improve your search engine rankings and drive more organic traffic
+              to your website with our SEO strategies.
+            </p>
+            <a href="server">
+              Learn More
+              <GoArrowRight />
+            </a>
+          </div>
+
+          <div className="Digital_Marketing">
+            <div>
+              {" "}
+              <GoDatabase className="Database" />{" "}
+            </div>
+            <h3>Digital Marketing</h3>
+            <p>
+              Comprehensive digital marketing solutions to increase brand
+              visibility and reach your target audience effectively.
+            </p>
+            <a href="#">
+              Learn More
+              <GoArrowRight />
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
 
