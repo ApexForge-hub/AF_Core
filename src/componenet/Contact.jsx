@@ -56,14 +56,14 @@ const Contact = () => {
               </span>
               Email
             </h3>
-            <p> apexforge@gmail.com</p>
+            <p> apexforge03@gmail.com</p>
             <h3>
               <span>
                 <IoCallOutline />
               </span>
               Phone
             </h3>
-            <p>+91 7371021846</p>
+            <p>+91 9875604360</p>
           </div>
 
           <div  className="business">

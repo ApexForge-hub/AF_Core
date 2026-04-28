@@ -68,7 +68,7 @@ function Layout() {
 
         <button className="contactNo">
           <a href="/contact" className="number">
-            +91 7371021846
+            +91 9875604360
           </a>
         </button>
       </header>
@@ -89,10 +89,10 @@ function Layout() {
               110006, India
             </h5>
             <h5>
-              <IoCallOutline /> +91 7371021846
+              <IoCallOutline /> +91 9875604360
             </h5>
             <h5>
-              <MdOutlineMail /> apexforge@gmail.com
+              <MdOutlineMail /> apexforge03@gmail.com
             </h5>
             <div className="social-icons">
               <button>

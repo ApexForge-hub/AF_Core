@@ -10,7 +10,7 @@ const Blog = () => {
           <h1>Apexforge Technologies Blog</h1>
           <p>
             Expert insights on web design, development, and digital marketing
-            for businesses in Srinagar, Jammu, and Kashmir.
+            for businesses in New Delhi.
           </p>
 
           <form className="search-form">
