@@ -1,6 +1,6 @@
 import React from "react";
 import "./About.css";
-import Code from "../assets/code.jpg";
+import code from "../assets/code.jpg";
 
 const About = () => {
   return (
@@ -31,7 +31,7 @@ const About = () => {
 
         {/* Right Image */}
         <div className="about-right">
-          <img src={Code} alt="About apexForge" />
+          <img src={code} alt="About apexForge" />
         </div>
       </div>
     </section>

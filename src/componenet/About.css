@@ -1,9 +1,10 @@
 .about-section {
   background: linear-gradient(135deg, #1e2a47 0%, #23335a 100%);
   padding: 80px 20px;
-  min-height: 600px;
+  min-height: 500px;
   display: flex;
   align-items: left;
+  margin-bottom:500px;
 }
 
 .about-container {

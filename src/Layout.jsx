@@ -1,6 +1,7 @@
 import "./Layout.css";
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 // import Home from "./componenet/Home";
 import { VscLocation } from "react-icons/vsc";
 import { IoCallOutline } from "react-icons/io5";
@@ -8,8 +9,20 @@ import { MdOutlineMail } from "react-icons/md";
 import { BiLogoFacebookSquare } from "react-icons/bi";
 import { FaInstagram } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 function Layout() {
+   const [isServicesOpen, setIsServicesOpen] = useState(false);
+
+  const servicesList = [
+    { name: "Web Design & Development", description: "Custom websites & applications", link: "/dev" },
+    { name: "Software Solutions", description: "Tailored business software", link: "/so" },
+    { name: "Digital Marketing", description: "SEO & online presence", link: "/market" },
+    { name: "E-Commerce Solutions", description: "Online stores & platforms", link: "/solution" },
+    { name: "Mobile Applications", description: "iOS & Android development", link: "/application" },
+  ];
+
+
   return (
     <>
       <header className="header">
@@ -22,8 +35,32 @@ function Layout() {
           <nav className="main-nav">
             <Link to="/">Home</Link>
             <Link to="/about">About</Link>
-            <Link to="/services">Services</Link>
-            <Link to="/case-studies">Case Studies</Link>
+            <div 
+              className="services-dropdown-container"
+              onMouseEnter={() => setIsServicesOpen(true)}
+              onMouseLeave={() => setIsServicesOpen(false)}
+            >
+              <button className="services-btn">
+                Services <MdKeyboardArrowDown className={`arrow-icon ${isServicesOpen ? 'open' : ''}`} />
+              </button>
+              
+              {isServicesOpen && (
+                <div className="services-dropdown">
+                  {servicesList.map((service, index) => (
+                    <Link 
+                      key={index}
+                      to={service.link}
+                      className="service-item"
+                      onClick={() => setIsServicesOpen(false)}
+                    >
+                      <div className="service-name">{service.name}</div>
+                      <div className="service-description">{service.description}</div>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+            <Link to="/projects">Projects</Link>
             <Link to="/blog">Blog</Link>
             <Link to="/contact">Contact</Link>
           </nav>
@@ -73,32 +110,32 @@ function Layout() {
             <h4>Our Services</h4>
             <ul>
               <li>
-                <a href="/services"    className="web">Web Development</a>
+                <a href="/dev"    className="web">Web Development</a>
                 <p>Custome websites & applications</p>
               </li>
 
               <li>
-                <a href="/services"   className="software">Software Solutions</a>
+                <a href="/so"   className="software">Software Solutions</a>
                 <p>Tailored business software</p>
               </li>
               <li>
-                <a href="/services"  className="digital">Digital Marketing</a>
+                <a href="/market"  className="digital">Digital Marketing</a>
                 <p>SEO & online presence</p>
               </li>
               <li>
-                <a href="/services"  className="e-commerce">E-Commerce Solution</a>
+                <a href="/solution"  className="e-commerce">E-Commerce Solution</a>
                 <p>Online stores & platforms</p>
               </li>
               <li>
-                <a href="/services"   className="mobile">Mobile Application</a>
+                <a href="/application"   className="mobile">Mobile Application</a>
                 <p>iOS & Android Development</p>
               </li>
               <li>
-                <a href="/services"  className="seo">SEO Services</a>
+                <a href="/ss"  className="seo">SEO Services</a>
                 <p>Improve search rankings</p>
               </li>
               <li>
-                <a href="/services"   className="ux">UX/UI Design</a>
+                <a href="/design"   className="ux">UX/UI Design</a>
                 <p>Used experience design</p>
               </li>
             </ul>
@@ -123,8 +160,8 @@ function Layout() {
                 </a>
               </li>
               <li>
-                <a href="/case-studies" className="case">
-                  Case Studies
+                <a href="/Projects" className="project">
+                  Projects
                 </a>
               </li>
               <li>
