@@ -8,7 +8,7 @@ const CaseStudies = () => {
         <h1>Our Projects</h1>
         <p>
           Explore our recent projects and see how we deliver exceptional digital
-          solutions for businesses across Srinagar, Jammu, and Kashmir.
+          solutions for businesses across New Delhi.
         </p>
       </div>
 
