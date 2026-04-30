@@ -60,6 +60,96 @@
   text-decoration: underline;
 }  */
 
+
+/* Services Dropdown Styles */
+.services-dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.services-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+  font-family: inherit;
+  transition: color 0.3s ease;
+}
+
+.services-btn:hover {
+  color: #38d9a9;
+}
+
+.arrow-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.arrow-icon.open {
+  transform: rotate(180deg);
+}
+
+.services-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border-radius: 8px;
+  min-width: 280px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+  margin-top: 8px;
+  padding: 12px 0;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.service-item {
+  display: block;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.2s ease;
+  border-left: 4px solid transparent;
+}
+
+.service-item:hover {
+  background-color: #f0f0f0;
+  border-left-color: #38d9a9;
+}
+
+.service-name {
+  font-weight: 600;
+  color: #23335A;
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+}
+
+.service-description {
+  font-size: 0.85rem;
+  color: #999;
+  font-weight: 400;
+}
+
+
+
+
+
 .contactNo{
   background-color: #967BB6;
   width: 200px;
@@ -172,12 +262,14 @@
   padding: 24px 0 0;
   color: #9CA3AF;
   font: 16px 'Poppins', sans-serif;
+  
 } 
 
 .home{
   text-decoration: none;
   color: #9CA3AF;
   font: 16px 'Poppins', sans-serif;
+  margin-bottom: 70px;
 }
 
 .home:hover{
@@ -204,13 +296,13 @@
   color: #ffffff;
 }
 
-.case{
+.project{
   text-decoration: none;
   color: #9CA3AF;
   font: 16px 'Poppins', sans-serif;
 }
 
-.case:hover{
+.project:hover{
   color: #ffffff;
 }
 
@@ -232,6 +324,20 @@
 
 .contact:hover{
   color: #ffffff;
+}
+
+
+/* Remove bullet points from footer lists */
+.footerServices ul,
+.quick-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footerServices li,
+.quick-links li {
+  list-style: none;
 }
 
   

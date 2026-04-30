@@ -3,7 +3,7 @@ import Layout from "./Layout";
 import HomePage from "./HomePage";
 import Services from "./componenet/Services";
 import About from "./componenet/About";
-import CaseStudies from "./componenet/CaseStudies";
+import Projects from "./componenet/Projects";
 import Contact from "./componenet/Contact";
 import Blog from "./componenet/Blog";
 import "./App.css";
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: "about", element: <About /> },
       { path: "services", element: <Services /> },
-      { path: "case-studies", element: <CaseStudies /> },
+      { path: "Projects", element: <Projects /> },
       { path: "blog", element: <Blog /> },
       { path: "contact", element: <Contact /> },
     ],
